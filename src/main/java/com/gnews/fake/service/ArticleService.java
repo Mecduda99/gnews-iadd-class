@@ -19,9 +19,13 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
     private static final DateTimeFormatter ISO_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    private String unusedField = "Sonar should catch this";
 
     public ArticleService(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
+        System.out.println("Service initialized");
+        // String test = "This is a commented out code block";
+        // System.out.println(test);
     }
 
     public ArticlesResponse getTopHeadlines(String category, String lang, String country, String q, int page, int max) {
@@ -121,5 +125,9 @@ public class ArticleService {
                         article.source().name(),
                         article.source().url(),
                         article.source().country()));
+    }
+
+    public void SonarTestMethod() {
+        // This method starts with an uppercase letter
     }
 }
