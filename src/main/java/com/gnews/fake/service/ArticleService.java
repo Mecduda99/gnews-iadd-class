@@ -130,4 +130,29 @@ public class ArticleService {
     public void SonarTestMethod() {
         // This method starts with an uppercase letter
     }
+
+    // Erros para o CodeRabbit pegar:
+    public Article findById(String id) {
+        // Bug: Pode retornar null e ser usado sem verificação
+        for (Article article : articleRepository.findAll()) {
+            if (article.id().equals(id)) {
+                return article;
+            }
+        }
+        return null;
+    }
+
+    public String getArticleTitle(String id) {
+        Article article = findById(id);
+        // CodeRabbit deve sugerir Optional ou check de null aqui
+        return article.title(); 
+    }
+
+    public void validateAccess() {
+        // Má prática: Hardcoded secret
+        String apiKey = "12345-ABCDE-SECRET-KEY";
+        if (apiKey.equals("admin")) {
+            System.out.println("Access granted");
+        }
+    }
 }
