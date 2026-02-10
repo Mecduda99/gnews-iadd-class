@@ -16,11 +16,11 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.AI_API_KEY }}
         with:
-          LANGUAGE: Portuguese
-          MODEL: gemini-2.5-flash # Ajuste para o modelo configurado
-          GEMINI-KEY: ${{ secrets.AI_API_KEY }}
-          GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PROMPT: |
+          language: Portuguese
+          model: gemini-2.5-flash # Ajuste para o modelo configurado
+          gemini-key: ${{ secrets.AI_API_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
             Aja como um Engenheiro de Segurança Sênior (DevSecOps). 
             Analise o DIFF deste Pull Request buscando:
             1. Vulnerabilidades OWASP Top 10 (especialmente SQL Injection e Insecure Deserialization).
