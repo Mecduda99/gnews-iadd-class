@@ -11,8 +11,11 @@ jobs:
       contents: read
       pull-requests: write # Necessário para comentar no PR
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
       - name: AI Reviewer
-        uses: sshaidm/gemini-code-review-action@v1 # Action que orquestra a revisão
+        uses: sshnaidm/gemini-code-review-action@main # Action que orquestra a revisão
         env:
           GEMINI_API_KEY: ${{ secrets.AI_API_KEY }}
         with:
